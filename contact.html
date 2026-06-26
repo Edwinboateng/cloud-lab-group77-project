@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Team CloudX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">☁️ Team CloudX</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="hero" style="padding: 60px 20px;">
+    <h1>Contact Us</h1>
+    <p>Have a question or want to reach out? Send us a message below.</p>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <section>
+    <h2>Send a Message</h2>
+    <div class="contact-form">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+      </div>
+      <button onclick="submitForm()">Send Message</button>
+      <p id="form-msg" style="margin-top: 16px; font-weight: 600; color: green;"></p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+  <section>
+    <h2>Our Info</h2>
+    <div class="info-box">
+      <p><span>Group:</span> Team CloudX</p>
+      <p><span>Institution:</span> Ghana Communication Technology University (GCTU)</p>
+      <p><span>Course:</span> Cloud Computing Practical</p>
+      <p><span>Email:</span> teamcloudx@gctu.edu.gh</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <span>Team CloudX</span> – GCTU Cloud Computing Lab</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const msg = document.getElementById('form-msg');
+
+      if (!name || !email || !message) {
+        msg.style.color = 'red';
+        msg.textContent = 'Please fill in all fields before sending.';
+        return;
+      }
+
+      if (!email.includes('@') || !email.includes('.')) {
+        msg.style.color = 'red';
+        msg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      msg.style.color = 'green';
+      msg.textContent = `Thanks, ${name}! Your message has been received.`;
+
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('message').value = '';
+    }
+  </script>
+
+</body>
+</html>
